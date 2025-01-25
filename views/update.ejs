@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/update.css">
+</head>
+<body>
+    <center><h1>Update/Remove Section</h1></center>
+    <hr>
+    <% if(topic.length===0) {%>
+       <center> <h2>You have not done any posting</h2></center>
+    <% } else {%>
+            
+                  <% for (var i=topic.length-1;i>=0;i--) {%>
+                    <div class="container">
+                    <div class="post">
+                        <div class="topic"><%=topic[i]%></div>
+                        <div class="date"><%=date[i]%></div>
+                        <div class="content"><%=content[i]%></div>
+                        <div class="buttons">
+                            <form action="/updatepost" method="POST">
+                                <input type="hidden" name="postId" value="<%= i %>">
+                                <button class="updatebtn">UPDATE</button>
+                            </form>
+                            <form action="/deletepost" method="POST">
+                                <input type="hidden" name="postId" value="<%= i %>">
+                                <button class="removebtn">DELETE</button>
+                            </form>
+
+                        </div>
+                   </div>
+                    </div>
+                   <%}%>
+           
+                 <%}%>
+
+                 
+                <div class="container2">
+                    <%- include("partials/footer.ejs")%>
+                </div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/feedback.css">
+</head>
+<body>
+        <div class="container">
+            <% if(state===1) {%>
+                <h1>Congratulations, <i><%=topic%></i> was posted.</h1>
+            <% } else {%>
+                <h1>Blog could not be posted because of invalid input</h1>
+                <% } %>
+        </div>
+
+        
+        <div class="container2">
+            <%- include ("partials/footer.ejs")%>
+           </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/create.css">
+</head>
+<body>
+    <center><h1>Create Your Post</h1></center>
+    <% if(locals.topic){%>
+        <form action="/submit" method="POST">
+            <div class="container">
+                <input type="text" name="topic" placeholder="Previous topic: <%=topic%>">
+                <textarea placeholder="What is your thoughts" name="content"><%=content%></textarea>
+                <input type="submit" value="UPDATE" class="btn">
+            </div>
+        </form>
+    <%} else {%>
+        <form action="/submit" method="POST">
+            <div class="container">
+                <input type="text" name="topic" placeholder="What about">
+                <textarea placeholder="What is your thoughts" name="content"></textarea>
+                <input type="submit" value="Post" class="btn">
+            </div>
+        </form>
+    <%}%>
+
+    <div class="container2">
+        <%- include ("partials/footer.ejs")%>
+       </div>
+</body>
+</html>
